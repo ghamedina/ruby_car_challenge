@@ -26,6 +26,7 @@ class CarController < ApplicationController
     @car = YAML.load(session[:car_info])
   end
 
+
   ##create a method
   ##
 end
