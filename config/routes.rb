@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   get '/simulator' =>'car#simulator'
   # get '/car/car_sim'
   get '/car/status'
+  get '/car/accelerate'
+  get '/car/brake'
+  get '/car/lights'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

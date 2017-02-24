@@ -3,6 +3,8 @@ class Car
   def initialize(make, model_year)
     @make = make
     @model_year = model_year
+    @speed = 0
+    @lights = false
   end
 
   #to be called in the view
@@ -16,19 +18,31 @@ class Car
   end
 
   def speed
-    @speed = "0km/hr"
+    @speed
   end
 
   def accelerate
-    @speed + 10
-  end 
-   # Necessary for YAML
-  #  def make = new_make
-  #    @make = new_make
-  #  end
-   #
-  #  def model_year = new_model_year
-  #    @model_year = new_model_year
-  #  end
+    @speed = @speed + 10
+  end
 
-end
+  def brake
+    if @speed - 7 < 0
+      @speed = 0
+    else
+      @speed = @speed - 7
+    end
+  end
+
+  def lights
+    # @lights
+    #didnt work when we just put @lights without == false, why?
+    if @lights == false #two equals to compare @lights to false
+      @lights = true
+      "On"
+    elsif @lights == true
+      @lights = false
+      "Off"
+    end
+  end
+
+end #ends Car class
