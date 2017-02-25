@@ -1,10 +1,12 @@
 class Car
 
-  def initialize(make, model_year)
+  def initialize(make, model_year, car_color)
     @make = make
     @model_year = model_year
+    @car_color = car_color
     @speed = 0
     @lights = false
+    @parking_status = true
   end
 
   #to be called in the view
@@ -17,12 +19,20 @@ class Car
     @model_year
   end
 
+  def car_color
+    @car_color
+  end
+  
   def speed
     @speed
   end
 
   def accelerate
-    @speed = @speed + 10
+    if @parking_status == false
+      @speed
+    else
+      @speed = @speed + 10
+    end
   end
 
   def brake
@@ -44,5 +54,16 @@ class Car
       "Off"
     end
   end
+
+  def parking_status
+    if @speed > 0 ||  @parking_status == true
+      @parking_status = false
+      " Off"
+    elsif @parking_status == false
+      @parking_status = true
+      " On"
+    end
+  end
+
 
 end #ends Car class

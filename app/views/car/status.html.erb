@@ -1,6 +1,6 @@
 <h1>Your Car Status</h1>
 
-<h2>Make: <%=@car.make%></h2>
+<h2 id="make"> Make: <%=@car.make%> </h2>
 <h2>Model: <%=@car.model_year%></h2>
 
   <!-- action tells the form where to go -->
@@ -18,3 +18,18 @@
   <form action="/car/lights" method="get">
     <input type="submit" value="Light Switch">
   </form>
+
+
+
+  <h2>Parking Brake Status:<%= @car.parking_status%>
+    <h4>
+      <form action="/car/parking_status" method="get">
+        <input type="radio" name="parking" value= "On"> Turn On/Off
+        <!-- <input type="radio" name="parking" value= "Off"> Turn Off -->
+        <!-- <br>
+        <br> -->
+        <!-- after we click the radio button we need to have submit button to save the click  -->
+        <input type="submit" value="Save">
+      </form>
+    </h4>
+  </h2>

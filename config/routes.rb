@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/car/accelerate'
   get '/car/brake'
   get '/car/lights'
+  get '/car/parking_status'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

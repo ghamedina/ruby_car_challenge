@@ -8,7 +8,7 @@ class CarController < ApplicationController
     if params.has_key?(:make) && !params[:make].strip.empty? &&
       params.has_key?(:model_year) && !params[:model_year].strip.empty?
       # create a car_inof object with make and model_year submitted
-      car1 = Car.new(params[:make], params[:model_year])
+      car1 = Car.new(params[:make], params[:model_year], params[:car_color])
       #save car_info object in session so it can be accessed in Car Status(other page)
       session[:car1] = car1.to_yaml
       #redirect to the Car Status page
@@ -50,6 +50,11 @@ class CarController < ApplicationController
     redirect_to '/car/status'
   end
 
-  ##create a method
-  ##
-end
+  def parking_status
+    Car
+    @car = YAML.load(session[:car1])
+    @car.parking_status
+    session[:car1] = @car.to_yaml
+    redirect_to '/car/status'
+  end
+end #end for the class
